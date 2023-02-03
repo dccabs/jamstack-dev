@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useIsVisible } from "react-is-visible";
+import Image from "next/image";
 
 interface BarProps {
   className?: string;
@@ -23,11 +24,11 @@ const Bar = (props: BarProps) => {
       ref={nodeRef}
     >
       <div
-        className={`relative p-6 text-white text-3xl text-right transition-all duration-1000 ease-in-out font-semibold w-6/12 rounded-r-md mb-2 bg-gradient-to-r ${
+        className={`relative p-6 text-white text-3xl text-right font-normal transition-all duration-1000 ease-in-out font-semibold w-6/12 rounded-r-md mb-2 bg-gradient-to-r ${
           isInitialized ? "-left-0" : "-left-[1000px]"
         } ${className}`}
       >
-        {title}
+        <div>{title}</div>
       </div>
     </div>
   );

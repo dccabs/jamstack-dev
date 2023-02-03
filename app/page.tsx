@@ -7,10 +7,6 @@ import { useIsVisible } from "react-is-visible";
 import PastWork from "@/app/components/home/PastWork";
 
 const Page = () => {
-  const nodeRef = useRef();
-  const nodeRef2 = useRef();
-  const isVisible = useIsVisible(nodeRef);
-  const isVisible2 = useIsVisible(nodeRef2);
   const [init, setInit] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
@@ -20,10 +16,11 @@ const Page = () => {
     }, 500);
   };
 
-  window &&
+  if (typeof window !== "undefined") {
     window.addEventListener("scroll", () => {
       setScrollY(window.scrollY);
     });
+  }
 
   const html = (
     <div>
@@ -31,7 +28,7 @@ const Page = () => {
         <div className="top-0 relative left-0 h-full w-full p-4 lg:p-10 flex justify-center items-center">
           <div className="w-full h-full sm:hidden lg:block">
             <Image
-              style={{ transform: `scale(${1 + scrollY / 1000})` }}
+              style={{ transform: `scale(${1 + (scrollY / 1000) * 1.2})` }}
               className="absolute z-0"
               src={background}
               alt="background"

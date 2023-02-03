@@ -23,21 +23,17 @@ const PastWork = () => {
           </h2>
         </div>
       </div>
-      <Bar className="bg-cyan-500 w-8/12" title="AlphaMD" />
-      <Bar className="bg-green-600 w-4/12" title="Landvisions" />
-      <Bar
-        className="bg-gray-200 text-black w-5/12"
-        title="Melde Construction"
-      />
-      <Bar className="bg-emerald-500 w-4/12" title="Sologic" />
-      <Bar className="bg-blue-600 w-6/12" title="DTCC" />
-      <Bar className="bg-red-500 w-7/12" title="StoryMinute" />
-      <Bar className="bg-yellow-500 w-8/12" title="HousecallMD" />
-      <Bar className="bg-red-500 w-8/12" title="Novus North" />
-      <Bar className="bg-green-500 w-8/12" title="Play Your Court" />
+      <Bar className="bg-orange-700 w-6/12" title="The University of Texas" />
       <Bar className="bg-purple-500 w-7/12" title="Flexcar" />
-      <Bar className="bg-emerald-500 w-4/12" title="Bright Culture" />
-      <Bar className="bg-orange-700 w-8/12" title="The University of Texas" />
+      <Bar className="bg-blue-600 w-5/12" title="DTCC" />
+      <Bar className="bg-emerald-500 w-6/12" title="Sologic" />
+      <Bar className="bg-red-500 w-7/12" title="Novus North" />
+      <Bar className="bg-emerald-500 w-6/12" title="Bright Culture" />
+      <Bar className="bg-cyan-500 w-5/12" title="Alpha MD" />
+      <Bar className="bg-green-600 w-6/12" title="Landvisions" />
+      <Bar className="bg-yellow-500 w-7/12" title="Housecall MD" />
+      <Bar className="bg-green-500 w-5/12" title="Play Your Court" />
+      <div>...and more</div>
     </div>
   );
 };
