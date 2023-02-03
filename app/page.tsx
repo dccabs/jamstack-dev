@@ -60,7 +60,7 @@ const Page = () => {
               init ? "-right-0" : "-right-[1000px]"
             }`}
           >
-            <div className="text-6xl lg:text-8xl leading-normal font-semibold flex justify-end">
+            <div className="text-6xl lg:text-8xl leading-tight md:leading-normal font-semibold flex justify-end px-8 md:px-0">
               <div className="lg:w-10/12 text-right">
                 Turning visions into reality with modern web development.
               </div>
