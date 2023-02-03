@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
 import { useState, useRef } from "react";
-import background from "../background_stars.jpg";
-import background_mobile from "../background_stars_mobile.jpg";
+import background from "../../background_stars.jpg";
+import background_mobile from "../../background_stars_mobile.jpg";
 import { useIsVisible } from "react-is-visible";
-import PastWork from "@/app/components/home/PastWork";
 
 const Page = () => {
   const nodeRef = useRef();
@@ -71,7 +70,34 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <PastWork />
+      <div className="h-[2000px] bg-black text-white py-10">
+        <div className="p-10">
+          <div
+            // @ts-ignore
+            ref={nodeRef}
+          >
+            <h2
+              className={`text-5xl lg:text-6xl font-semibold relative transition-all duration-500 ease-in-out ${
+                isVisible ? "-left-0" : "-left-[1000px]"
+              }`}
+            >
+              Past Work
+            </h2>
+          </div>
+        </div>
+        <div
+          // @ts-ignore
+          ref={nodeRef2}
+        >
+          <div
+            className={`relative p-10 bg-green-700 text-white text-6xl transition-all duration-1000 ease-in-out font-semibold w-5/12 rounded-r-md ${
+              isVisible2 ? "-left-0" : "-left-[1000px]"
+            }`}
+          >
+            landvisions.com
+          </div>
+        </div>
+      </div>
     </div>
   );
   return html;
