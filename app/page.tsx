@@ -4,16 +4,17 @@ import { useState, useRef } from "react";
 import background from "../background_stars.jpg";
 import background_mobile from "../background_stars_mobile.jpg";
 import { useIsVisible } from "react-is-visible";
-import PastWork from "@/app/components/home/PastWork";
+import RecentProjects from "@/app/components/home/RecentProjects";
+import WhatWeDo from "@/app/components/home/WhatWeDo";
+import Tools from "@/app/components/home/Tools";
+import WhoWeAre from "@/app/components/home/WhoWeAre";
 
 const Page = () => {
   const [init, setInit] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
   const initPage = () => {
-    setTimeout(() => {
-      setInit(true);
-    }, 500);
+    setInit(true);
   };
 
   if (typeof window !== "undefined") {
@@ -28,7 +29,7 @@ const Page = () => {
         <div className="top-0 relative left-0 h-full w-full p-4 lg:p-10 flex justify-center items-center">
           <div className="w-full h-full sm:hidden lg:block">
             <Image
-              style={{ transform: `scale(${1 + (scrollY / 1000) * 1.2})` }}
+              style={{ transform: `scale(${1 + (scrollY / 1000) * 1})` }}
               className="absolute z-0"
               src={background}
               alt="background"
@@ -46,11 +47,14 @@ const Page = () => {
               onLoadingComplete={initPage}
             />
           </div>
-          <div className={`absolute z-2 left-8 ${init ? "top-8" : "-top-24"}`}>
+          <div
+            className={`z-2 left-0 top-0 transition-all duration-500 py-6 px-8 z-10 w-full absolute ${
+              init ? "top-0" : "-top-24"
+            }
+            `}
+          >
             <h1
-              className={`text-5xl lg:text-6xl font-semibold relative transition-all duration-500 text-white ease-in-out ${
-                init ? "-top-0" : "-top-24"
-              }`}
+              className={`text-5xl lg:text-6xl font-semibold relative text-white ease-in-out w-full`}
             >
               Jamstack Dev
             </h1>
@@ -68,7 +72,10 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <PastWork />
+      <RecentProjects />
+      <WhatWeDo />
+      <Tools />
+      <WhoWeAre />
     </div>
   );
   return html;

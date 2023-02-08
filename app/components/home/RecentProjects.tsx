@@ -2,13 +2,13 @@ import { useIsVisible } from "react-is-visible";
 import { useRef } from "react";
 import Bar from "../bar";
 
-const PastWork = () => {
+const RecentProjects = () => {
   const nodeRef = useRef();
   const nodeRef2 = useRef();
   const isVisible = useIsVisible(nodeRef);
   const isVisible2 = useIsVisible(nodeRef2);
   return (
-    <div className="h-[2000px] bg-black text-white py-10">
+    <div className="bg-black text-white py-10">
       <div className="">
         <div
           // @ts-ignore
@@ -39,4 +39,4 @@ const PastWork = () => {
   );
 };
 
-export default PastWork;
+export default RecentProjects;
