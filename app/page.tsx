@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import background from "../background_galaxy.jpg";
-import background_mobile from "../background_galaxy.jpg";
+import background_mobile from "../background_galaxy_mobile.jpg";
 import { useIsVisible } from "react-is-visible";
 import RecentProjects from "@/app/components/home/RecentProjects";
 import WhatWeDo from "@/app/components/home/WhatWeDo";
@@ -18,10 +18,10 @@ const Page = () => {
   useEffect(() => {
     if (!init) return;
     if (count === 0 && init) {
-      setTimeout(() => {
-        setCount(count + 1);
-      }, 3000);
-      return;
+      // setTimeout(() => {
+      setCount(count + 1);
+      // }, 3000);
+      // return;
     } else {
       setTimeout(() => {
         setCount(count + 1);
@@ -32,8 +32,10 @@ const Page = () => {
 
   const backgroundClasses = classNames({
     "transform transition-all duration-[15000ms] ease-in-out": true,
-    "scale-x-100": count % 2 === 1,
-    "scale-x-150": count % 2 === 0,
+    "scale-x-100 scale-y-100": count % 2 === 1 && count % 3 !== 0,
+    "scale-x-150": count % 2 === 0 && count % 4 !== 0,
+    "scale-y-120 scale-x-120": count % 3 === 0,
+    "scale-y-150 scale-x-110": count % 4 === 0,
   });
 
   const initPage = () => {
@@ -62,8 +64,7 @@ const Page = () => {
           </div>
           <div className="w-full h-full sm:block lg:hidden">
             <Image
-              style={{ transform: `scale(${1 + scrollY / 1000})` }}
-              className="absolute z-0"
+              className={`absolute z-0 ${backgroundClasses}`}
               src={background_mobile}
               alt="background"
               fill
