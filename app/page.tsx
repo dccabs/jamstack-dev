@@ -1,17 +1,40 @@
 "use client";
 import Image from "next/image";
-import { useState, useRef } from "react";
-import background from "../background_stars.jpg";
-import background_mobile from "../background_stars_mobile.jpg";
+import { useState, useRef, useEffect } from "react";
+import background from "../background_galaxy.jpg";
+import background_mobile from "../background_galaxy.jpg";
 import { useIsVisible } from "react-is-visible";
 import RecentProjects from "@/app/components/home/RecentProjects";
 import WhatWeDo from "@/app/components/home/WhatWeDo";
 import Tools from "@/app/components/home/Tools";
 import WhoWeAre from "@/app/components/home/WhoWeAre";
+import classNames from "classnames";
 
 const Page = () => {
+  const [count, setCount] = useState(0);
   const [init, setInit] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    if (!init) return;
+    if (count === 0 && init) {
+      setTimeout(() => {
+        setCount(count + 1);
+      }, 3000);
+      return;
+    } else {
+      setTimeout(() => {
+        setCount(count + 1);
+      }, 14000);
+      return;
+    }
+  }, [init, count]);
+
+  const backgroundClasses = classNames({
+    "transform transition-all duration-[15000ms] ease-in-out": true,
+    "scale-x-100": count % 2 === 1,
+    "scale-x-150": count % 2 === 0,
+  });
 
   const initPage = () => {
     setInit(true);
@@ -29,8 +52,8 @@ const Page = () => {
         <div className="top-0 relative left-0 h-full w-full p-4 lg:p-10 flex justify-center items-center">
           <div className="w-full h-full sm:hidden lg:block">
             <Image
-              style={{ transform: `scale(${1 + (scrollY / 1000) * 1})` }}
-              className="absolute z-0"
+              // style={{ transform: `scale(${1 + (scrollY / 1000) * 0.5})` }}
+              className={`absolute z-0 ${backgroundClasses}`}
               src={background}
               alt="background"
               fill
@@ -64,9 +87,9 @@ const Page = () => {
               init ? "-right-0" : "-right-[1000px]"
             }`}
           >
-            <div className="text-6xl lg:text-8xl leading-tight md:leading-normal font-semibold flex justify-end px-8 md:px-0">
+            <div className="text-6xl lg:text-7xl leading-tight md:leading-normal font-semibold flex justify-end px-8 md:px-0">
               <div className="lg:w-10/12 text-right">
-                Turning visions into reality with modern web development.
+                Modern Web Development.
               </div>
             </div>
           </div>
