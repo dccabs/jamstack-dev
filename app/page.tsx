@@ -5,9 +5,6 @@ import background from "../background_galaxy.jpg";
 import background_mobile from "../background_galaxy_mobile.jpg";
 import { useIsVisible } from "react-is-visible";
 import RecentProjects from "@/app/components/home/RecentProjects";
-import WhatWeDo from "@/app/components/home/WhatWeDo";
-import Tools from "@/app/components/home/Tools";
-import WhoWeAre from "@/app/components/home/WhoWeAre";
 import classNames from "classnames";
 
 const Page = () => {
