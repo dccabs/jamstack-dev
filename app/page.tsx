@@ -97,9 +97,9 @@ const Page = () => {
         </div>
       </div>
       <RecentProjects />
-      <WhatWeDo />
-      <Tools />
-      <WhoWeAre />
+      {/*<WhatWeDo />*/}
+      {/*<Tools />*/}
+      {/*<WhoWeAre />*/}
     </div>
   );
   return html;

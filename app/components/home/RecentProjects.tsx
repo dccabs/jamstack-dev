@@ -1,14 +1,15 @@
 import { useIsVisible } from "react-is-visible";
 import { useRef } from "react";
 import Bar from "../bar";
+import projects from "@/data/projects";
+
+import classNames from "classnames";
 
 const RecentProjects = () => {
   const nodeRef = useRef();
   const nodeRef2 = useRef();
-  const isVisible = useIsVisible(nodeRef);
-  const isVisible2 = useIsVisible(nodeRef2);
   return (
-    <div className="bg-black text-white py-10">
+    <div className="bg-black text-white py-24">
       <div className="">
         <div
           // @ts-ignore
@@ -21,14 +22,26 @@ const RecentProjects = () => {
           </h2>
         </div>
       </div>
-      <Bar className="bg-orange-600" title="The University of Texas" />
-      <Bar className="bg-teal-300 text-black" title="Flexcar" />
-      <Bar className="bg-cyan-500" title="DTCC" />
-      <Bar className="bg-lime-500" title="Sologic" />
-      <Bar className="bg-white text-black" title="Bright Culture" />
-      <Bar className="bg-cyan-500" title="Alpha MD" />
-      <Bar className="bg-teal-700" title="Landvisions" />
-      <Bar className="bg-rose-400" title="Housecall MD" />
+      {projects &&
+        projects.map((project, index) => {
+          const barClasses = classNames({
+            "bg-orange-600": project.color === "bg-orange-500",
+            "bg-indigo-700": project.color === "bg-indigo-400",
+            "bg-cyan-500": project.color === "bg-cyan-500",
+          });
+          return (
+            <Bar
+              key={`project-${index}`}
+              className={barClasses}
+              project={project}
+            />
+          );
+        })}
+      {/*<Bar className="bg-lime-500" title="Sologic" />*/}
+      {/*<Bar className="bg-white text-black" title="Bright Culture" />*/}
+      {/*<Bar className="bg-cyan-500" title="Alpha MD" />*/}
+      {/*<Bar className="bg-teal-700" title="Landvisions" />*/}
+      {/*<Bar className="bg-rose-400" title="Housecall MD" />*/}
       <div>...and more</div>
     </div>
   );
