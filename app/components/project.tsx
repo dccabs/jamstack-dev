@@ -18,32 +18,32 @@ export default function Project({ project }: ProjectProps) {
                 {project.title}
               </p>
 
-              {project?.description.map((paragraph, index) => {
-                const key = paragraph.replace(/\s/g, "") + index;
-                return (
-                  <p key={key} className="mt-6 text-lg leading-8 text-gray-300">
-                    {paragraph}
-                  </p>
-                );
-              })}
+              {/*{project?.description.map((paragraph, index) => {*/}
+              {/*  const key = paragraph.replace(/\s/g, "") + index;*/}
+              {/*  return (*/}
+              {/*    <p key={key} className="mt-6 text-lg leading-8 text-gray-300">*/}
+              {/*      {paragraph}*/}
+              {/*    </p>*/}
+              {/*  );*/}
+              {/*})}*/}
               <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none">
-                {project?.features.map((feature) => (
-                  <div key={feature.name} className="relative pl-9">
-                    <dt className="inline font-semibold text-white">
-                      <feature.icon
-                        className="absolute top-1 left-1 h-5 w-5 text-indigo-500"
-                        aria-hidden="true"
-                      />
-                      {feature.name}
-                    </dt>{" "}
-                    <dd className="inline">{feature.description}</dd>
-                  </div>
-                ))}
+                {/*{project?.features.map((feature) => (*/}
+                {/*  <div key={feature.name} className="relative pl-9">*/}
+                {/*    <dt className="inline font-semibold text-white">*/}
+                {/*      <feature.icon*/}
+                {/*        className="absolute top-1 left-1 h-5 w-5 text-indigo-500"*/}
+                {/*        aria-hidden="true"*/}
+                {/*      />*/}
+                {/*      {feature.name}*/}
+                {/*    </dt>{" "}*/}
+                {/*    <dd className="inline">{feature.description}</dd>*/}
+                {/*  </div>*/}
+                {/*))}*/}
               </dl>
             </div>
           </div>
           <Image
-            src={project.image}
+            src={`https:${project?.previewImage?.fields?.file?.url}`}
             alt="Product screenshot"
             className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-white/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
             width={2432}

@@ -1,13 +1,14 @@
-import { useIsVisible } from "react-is-visible";
+"use client";
 import { useRef } from "react";
 import Bar from "../bar";
-import projects from "@/data/projects";
 
-import classNames from "classnames";
+interface RecentProjectsProps {
+  data: any;
+}
 
-const RecentProjects = () => {
+const RecentProjects = (props: RecentProjectsProps) => {
+  const data = props.data;
   const nodeRef = useRef();
-  const nodeRef2 = useRef();
   return (
     <div className="bg-black text-white py-24">
       <div className="">
@@ -22,17 +23,12 @@ const RecentProjects = () => {
           </h2>
         </div>
       </div>
-      {projects &&
-        projects.map((project, index) => {
-          const barClasses = classNames({
-            "bg-orange-600": project.color === "bg-orange-500",
-            "bg-indigo-700": project.color === "bg-indigo-400",
-            "bg-cyan-500": project.color === "bg-cyan-500",
-          });
+      {data &&
+        data.map((project: any, index: number) => {
           return (
             <Bar
               key={`project-${index}`}
-              className={barClasses}
+              className={project.color}
               project={project}
             />
           );

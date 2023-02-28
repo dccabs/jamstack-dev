@@ -10,16 +10,19 @@ interface BarProps {
 }
 
 const Bar = (props: BarProps) => {
+  console.log("Bar props", props);
   const [isInitialized, setIsInitialized] = useState(false);
   const [active, setIsActive] = useState(false);
   const nodeRef = useRef();
   const isVisible = useIsVisible(nodeRef);
   const { project, className } = props;
-  const { client } = project;
-
+  console.log("className", className);
+  const { shortClientName } = project;
   const barClasses = classNames({
     "w-11/12": active,
     "w-6/12": !active,
+    "bg-orange-500": className === "bg-orange-500",
+    "bg-indigo-700": className === "bg-indigo-700",
   });
 
   const contentClasses = classNames({
@@ -50,7 +53,7 @@ const Bar = (props: BarProps) => {
         //   setIsActive(false);
         // }}
       >
-        <div>{client}</div>
+        <div>{shortClientName}</div>
       </button>
       <div
         className={`w-full overflow-hidden transition-all duration-500 ${contentClasses}`}
