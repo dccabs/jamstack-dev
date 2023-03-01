@@ -21,7 +21,7 @@ const Bar = (props: BarProps) => {
   const barClasses = classNames({
     "w-11/12": active,
     "w-6/12": !active,
-    "bg-orange-500": className === "bg-orange-500",
+    "bg-orange-600": className === "bg-orange-600",
     "bg-indigo-700": className === "bg-indigo-700",
   });
 

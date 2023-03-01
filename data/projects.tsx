@@ -19,10 +19,10 @@ export type ProjectType = {
   client: string;
   shortClientName: string;
   title: string;
-  description: string[];
+  description: any;
   previewImage: any;
   color: string;
-  features: FeatureType[];
+  technologies: any[];
 };
 
 // const projects: ProjectType[] = [
